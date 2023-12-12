@@ -34,7 +34,7 @@ struct APIConfiguration {
     
 }
 
-struct APIEndpoint {
+struct WeatherAPI {
     enum APIEndpointPath: String {
         case chatCompletions = "/v1/chat/completions"
     }
