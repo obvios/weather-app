@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum APIError: Error {
+    case .unableToBuildRequest
+}
+
 struct APIConfiguration {
     let apiKey: String
     let baseURL: String
@@ -37,6 +41,16 @@ struct WeatherAPI {
         let baseURL = "api.openweathermap.org"
         return APIConfiguration(apiKey: apiKey, baseURL: baseURL)
     }()
+    
+    func requestWeatherData(lat: Double, lon: Double) async throws -> WeatherData {
+        let latitude = String(lat)
+        let longitude = String(lon)
+        guard let request = urlRequest(endpointPath: .weatherByCoordinates(lat: latitude, lon: longitude)) else {
+            throw APIError.unableToBuildRequest
+        }
+        let networkService = NetworkService()
+        return try await networkService.request(request)
+    }
     
     private func urlRequest(endpointPath: APIEndpointPath) -> URLRequest? {
         let endpoint = resolveEndpoint(for: endpointPath)
