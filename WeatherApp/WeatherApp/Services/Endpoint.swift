@@ -16,13 +16,11 @@ struct Endpoint {
     let path: String
     let method: HTTPMethod
     let parameters: [URLQueryItem]?
-    let body: Data?
     
-    init(path: String, method: HTTPMethod, parameters: [URLQueryItem]? = nil, body: Data? = nil) {
+    init(path: String, method: HTTPMethod, parameters: [URLQueryItem]? = nil) {
         self.path = path
         self.method = method
         self.parameters = parameters
-        self.body = body
     }
     
     func urlRequest(configuration: APIConfiguration) -> URLRequest? {
@@ -35,7 +33,6 @@ struct Endpoint {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = configuration.headers
-        request.httpBody = body
         return request
     }
 }
