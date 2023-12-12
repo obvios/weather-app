@@ -28,7 +28,7 @@ struct APIConfiguration {
 
 struct WeatherAPI {
     enum APIEndpointPath {
-        case weather(lat: String, lon: String)
+        case weatherByCoordinates(lat: String, lon: String)
     }
     
     // let endpointPath: APIEndpointPath
@@ -50,7 +50,7 @@ struct WeatherAPI {
     
     private func resolveEndpoint(for path: APIEndpointPath) -> Endpoint {
         switch path {
-        case .weather(let lat, let lon):
+        case .weatherByCoordinates(let lat, let lon):
             let queryParameters: [URLQueryItem] = [.init(name: "lat", value: lat),
                                                    .init(name: "lon", value: lon)]
             return Endpoint(path: "/data/2.5/weather", method: .GET, parameters: queryParameters)
