@@ -12,10 +12,17 @@ struct WeatherData: Decodable {
 }
 
 struct WeatherCondition: Decodable {
-    let id: String?
-    let main: String?
-    let description: String?
-    let icon: String?
+    let id: Int
+    let main: String
+    let description: String
+    let icon: String
 }
 
-
+struct WeatherMeasurements: Decodable {
+    let temp: Double
+    let feelsLike: Double
+    let tempMin: Double
+    let tempMax: Double
+    let pressure: Int
+    let humidity: Int
+}
