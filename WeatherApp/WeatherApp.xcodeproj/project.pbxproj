@@ -20,6 +20,7 @@
 		55C2BDFD2B27EAAF0088A485 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BDFC2B27EAAF0088A485 /* WeatherData.swift */; };
 		55C2BE002B2884770088A485 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BDFF2B2884770088A485 /* Endpoint.swift */; };
 		55C2BE022B2885D00088A485 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE012B2885D00088A485 /* NetworkService.swift */; };
+		55C2BE042B2889030088A485 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE032B2889030088A485 /* WeatherAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		55C2BDFC2B27EAAF0088A485 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		55C2BDFF2B2884770088A485 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		55C2BE012B2885D00088A485 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		55C2BE032B2889030088A485 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				55C2BDFF2B2884770088A485 /* Endpoint.swift */,
 				55C2BE012B2885D00088A485 /* NetworkService.swift */,
+				55C2BE032B2889030088A485 /* WeatherAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				55C2BDF92B27E99E0088A485 /* WeatherViewModel.swift in Sources */,
 				55C2BDC92B27E7930088A485 /* AppDelegate.swift in Sources */,
 				55C2BE002B2884770088A485 /* Endpoint.swift in Sources */,
+				55C2BE042B2889030088A485 /* WeatherAPI.swift in Sources */,
 				55C2BDCB2B27E7930088A485 /* SceneDelegate.swift in Sources */,
 				55C2BE022B2885D00088A485 /* NetworkService.swift in Sources */,
 			);
