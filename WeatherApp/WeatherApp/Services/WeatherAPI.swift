@@ -27,14 +27,15 @@ struct APIConfiguration {
 }
 
 struct WeatherAPI {
-    enum APIEndpointPath: String {
-        case chatCompletions = "/v1/chat/completions"
+    enum APIEndpointPath {
+        case weather(lat: String, lon: String)
     }
     
-    let endpointPath: APIEndpointPath
+    // let endpointPath: APIEndpointPath
     let bodyData: Codable?
     let apiConfiguration: APIConfiguration
     
+    /*
     func urlRequest() -> URLRequest? {
         let endpoint = endpointFor(endpointPath)
         var urlRequest = endpoint.urlRequest(configuration: apiConfiguration)
@@ -45,11 +46,14 @@ struct WeatherAPI {
         }
         return urlRequest
     }
+     */
     
-    private func endpointFor(_ path: APIEndpointPath) -> Endpoint {
+    private func resolveEndpoint(for path: APIEndpointPath) -> Endpoint {
         switch path {
-        case .chatCompletions:
-            return Endpoint(path: path.rawValue, method: .POST)
+        case .weather(let lat, let lon):
+            let queryParameters: [URLQueryItem] = [.init(name: "lat", value: lat),
+                                                   .init(name: "lon", value: lon)]
+            return Endpoint(path: "/data/2.5/weather", method: .GET, parameters: queryParameters)
         }
     }
 }
