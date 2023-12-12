@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct WeatherData: Decodable {
+    
+}
+
+struct WeatherInformation: Decodable {
+    let id: String?
+    let main: String?
+    let description: String?
+    let icon: String?
+}
