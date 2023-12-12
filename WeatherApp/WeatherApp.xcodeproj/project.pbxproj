@@ -22,6 +22,7 @@
 		55C2BE022B2885D00088A485 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE012B2885D00088A485 /* NetworkService.swift */; };
 		55C2BE042B2889030088A485 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE032B2889030088A485 /* WeatherAPI.swift */; };
 		55C2BE062B2897C60088A485 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE052B2897C60088A485 /* APIConfiguration.swift */; };
+		55C2BE082B289B5E0088A485 /* CityCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE072B289B5E0088A485 /* CityCoordinates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		55C2BE012B2885D00088A485 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		55C2BE032B2889030088A485 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		55C2BE052B2897C60088A485 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		55C2BE072B289B5E0088A485 /* CityCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCoordinates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				55C2BDFC2B27EAAF0088A485 /* WeatherData.swift */,
+				55C2BE072B289B5E0088A485 /* CityCoordinates.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				55C2BDC92B27E7930088A485 /* AppDelegate.swift in Sources */,
 				55C2BE062B2897C60088A485 /* APIConfiguration.swift in Sources */,
 				55C2BE002B2884770088A485 /* Endpoint.swift in Sources */,
+				55C2BE082B289B5E0088A485 /* CityCoordinates.swift in Sources */,
 				55C2BE042B2889030088A485 /* WeatherAPI.swift in Sources */,
 				55C2BDCB2B27E7930088A485 /* SceneDelegate.swift in Sources */,
 				55C2BE022B2885D00088A485 /* NetworkService.swift in Sources */,
