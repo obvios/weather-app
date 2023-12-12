@@ -8,7 +8,7 @@
 import Foundation
 
 enum APIError: Error {
-    case .unableToBuildRequest
+    case unableToBuildRequest
 }
 
 struct APIConfiguration {
