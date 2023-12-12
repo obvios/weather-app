@@ -24,8 +24,3 @@ class WeatherViewModel {
         return UserDefaults.standard.string(forKey: "lastSearchedCity")
     }
 }
-
-// You'll need to define WeatherData based on the data you expect from the API
-struct WeatherData {
-    // Define properties like temperature, icon, etc.
-}
