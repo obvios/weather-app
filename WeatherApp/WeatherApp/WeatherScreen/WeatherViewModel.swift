@@ -15,6 +15,11 @@ class WeatherViewModel {
         // On successful fetch, call completion with WeatherData
         // On failure, call completion with Error
     }
+    
+    func requestWeather(lat: Double, lon: Double) async throws -> WeatherData {
+        let api = WeatherAPI()
+        return try await api.requestWeatherData(lat: lat, lon: lon)
+    }
 
     func saveLastSearchedCity(cityName: String) {
         UserDefaults.standard.set(cityName, forKey: "lastSearchedCity")
