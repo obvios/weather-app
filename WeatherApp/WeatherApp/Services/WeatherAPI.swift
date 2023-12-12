@@ -9,26 +9,18 @@ import Foundation
 
 struct APIConfiguration {
     let apiKey: String
-    let organization: String?
     let baseURL: String
     let scheme: String = "https"
     
     var headers: [String: String]? {
         var headers = [String: String]()
-        headers["Authorization"] = "Bearer \(apiKey)"
-
-        if let organization = organization {
-            headers["OpenAI-Organization"] = organization
-        }
-        
         headers["Content-Type"] = "application/json"
         
         return headers
     }
     
-    init(apiKey: String, organization: String? = nil, baseURL: String) {
+    init(apiKey: String, baseURL: String) {
         self.apiKey = apiKey
-        self.organization = organization
         self.baseURL = baseURL
     }
     
