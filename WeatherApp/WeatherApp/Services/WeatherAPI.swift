@@ -10,6 +10,7 @@ import Foundation
 struct WeatherAPI {
     enum APIEndpointPath {
         case weatherByCoordinates(lat: String, lon: String)
+        case geocode(cityName: String)
     }
     
     let apiConfiguration: APIConfiguration = {
@@ -41,6 +42,9 @@ struct WeatherAPI {
             let queryParameters: [URLQueryItem] = [.init(name: "lat", value: lat),
                                                    .init(name: "lon", value: lon)]
             return Endpoint(path: "/data/2.5/weather", method: .GET, parameters: queryParameters)
+        case .geocode(let city):
+            let queryParameters: [URLQueryItem] = [.init(name: "q", value: city)]
+            return Endpoint(path: "/geo/1.0/direct", method: .GET, parameters: queryParameters)
         }
     }
 }
