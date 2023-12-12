@@ -31,7 +31,12 @@ struct WeatherAPI {
         case weatherByCoordinates(lat: String, lon: String)
     }
     
-    let apiConfiguration: APIConfiguration
+    let apiConfiguration: APIConfiguration = {
+        // Normally would not hard code api key in code base
+        let apiKey = "testKey"
+        let baseURL = "api.openweathermap.org"
+        return APIConfiguration(apiKey: apiKey, baseURL: baseURL)
+    }()
     
     private func urlRequest(endpointPath: APIEndpointPath) -> URLRequest? {
         let endpoint = resolveEndpoint(for: endpointPath)
