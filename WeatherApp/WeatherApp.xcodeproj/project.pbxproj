@@ -17,6 +17,7 @@
 		55C2BDEA2B27E7990088A485 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BDE92B27E7990088A485 /* WeatherAppUITests.swift */; };
 		55C2BDEC2B27E7990088A485 /* WeatherAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BDEB2B27E7990088A485 /* WeatherAppUITestsLaunchTests.swift */; };
 		55C2BDF92B27E99E0088A485 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BDF82B27E99E0088A485 /* WeatherViewModel.swift */; };
+		55C2BDFD2B27EAAF0088A485 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BDFC2B27EAAF0088A485 /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		55C2BDE92B27E7990088A485 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		55C2BDEB2B27E7990088A485 /* WeatherAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		55C2BDF82B27E99E0088A485 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		55C2BDFC2B27EAAF0088A485 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		55C2BDFB2B27EA6F0088A485 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				55C2BDFC2B27EAAF0088A485 /* WeatherData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C2BDCD2B27E7930088A485 /* WeatherViewController.swift in Sources */,
+				55C2BDFD2B27EAAF0088A485 /* WeatherData.swift in Sources */,
 				55C2BDF92B27E99E0088A485 /* WeatherViewModel.swift in Sources */,
 				55C2BDC92B27E7930088A485 /* AppDelegate.swift in Sources */,
 				55C2BDCB2B27E7930088A485 /* SceneDelegate.swift in Sources */,
