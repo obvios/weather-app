@@ -164,12 +164,20 @@
 		55C2BDFE2B2883EB0088A485 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				55C2BE0B2B28AA3C0088A485 /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		55C2BE0B2B28AA3C0088A485 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
 				55C2BDFF2B2884770088A485 /* Endpoint.swift */,
 				55C2BE052B2897C60088A485 /* APIConfiguration.swift */,
 				55C2BE012B2885D00088A485 /* NetworkService.swift */,
 				55C2BE032B2889030088A485 /* WeatherAPI.swift */,
 			);
-			path = Services;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
