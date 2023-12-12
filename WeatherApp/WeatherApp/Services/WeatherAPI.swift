@@ -24,27 +24,23 @@ struct WeatherAPI {
     func requestWeatherData(lat: Double, lon: Double) async throws -> WeatherData {
         let latitude = String(lat)
         let longitude = String(lon)
-        guard let request = urlRequest(endpointPath: .weatherByCoordinates(lat: latitude, lon: longitude)) else {
+        let endpoint = resolveEndpoint(for: .weatherByCoordinates(lat: latitude, lon: longitude))
+        guard let urlRequest = endpoint.urlRequest(configuration: apiConfiguration) else {
             throw APIError.unableToBuildRequest
         }
         let networkService = NetworkService()
-        return try await networkService.request(request)
+        return try await networkService.request(urlRequest)
     }
     
     /// Request geo coordinates using city name
     func requestGeoCoordinates(cityName: String) async throws -> [CityCoordinates] {
-        guard let request = urlRequest(endpointPath: .geocode(cityName: cityName)) else {
+        let endpoint = resolveEndpoint(for: .geocode(cityName: cityName))
+        guard let urlRequest = endpoint.urlRequest(configuration: apiConfiguration) else {
             throw APIError.unableToBuildRequest
         }
         
         let networkService = NetworkService()
-        return try await networkService.request(request)
-    }
-    
-    private func urlRequest(endpointPath: APIEndpointPath) -> URLRequest? {
-        let endpoint = resolveEndpoint(for: endpointPath)
-        var urlRequest = endpoint.urlRequest(configuration: apiConfiguration)
-        return urlRequest
+        return try await networkService.request(urlRequest)
     }
     
     private func resolveEndpoint(for path: APIEndpointPath) -> Endpoint {
