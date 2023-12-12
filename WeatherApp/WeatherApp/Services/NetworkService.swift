@@ -21,7 +21,16 @@ class NetworkService {
         session = URLSession(configuration: configuration)
     }
     
-    /// Send `URL` and return decoded response
+    /// Request raw data from `URL`
+    func requestData(_ url: URL) async throws -> Data {
+        let (data, response) = try await session.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            throw NetworkError.invalidResponse
+        }
+        return data
+    }
+    
+    /// Request `URL` and return decoded response
     func request<T: Decodable>(_ url: URL) async throws -> T {
         let (data, response) = try await session.data(from: url)
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
