@@ -8,7 +8,8 @@
 import Foundation
 
 struct WeatherData: Decodable {
-    
+    let weather: [WeatherCondition]
+    let main: WeatherMeasurements
 }
 
 struct WeatherCondition: Decodable {
