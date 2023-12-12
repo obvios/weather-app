@@ -104,6 +104,7 @@
 				55C2BDC82B27E7930088A485 /* AppDelegate.swift */,
 				55C2BDCA2B27E7930088A485 /* SceneDelegate.swift */,
 				55C2BDFA2B27EA520088A485 /* WeatherScreen */,
+				55C2BDFB2B27EA6F0088A485 /* Models */,
 				55C2BDCE2B27E7930088A485 /* Main.storyboard */,
 				55C2BDD12B27E7990088A485 /* Assets.xcassets */,
 				55C2BDD32B27E7990088A485 /* LaunchScreen.storyboard */,
@@ -136,6 +137,13 @@
 				55C2BDF82B27E99E0088A485 /* WeatherViewModel.swift */,
 			);
 			path = WeatherScreen;
+			sourceTree = "<group>";
+		};
+		55C2BDFB2B27EA6F0088A485 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
