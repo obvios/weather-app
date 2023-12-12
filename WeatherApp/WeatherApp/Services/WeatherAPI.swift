@@ -31,22 +31,13 @@ struct WeatherAPI {
         case weatherByCoordinates(lat: String, lon: String)
     }
     
-    // let endpointPath: APIEndpointPath
-    let bodyData: Codable?
     let apiConfiguration: APIConfiguration
     
-    /*
-    func urlRequest() -> URLRequest? {
-        let endpoint = endpointFor(endpointPath)
+    private func urlRequest(endpointPath: APIEndpointPath) -> URLRequest? {
+        let endpoint = resolveEndpoint(for: endpointPath)
         var urlRequest = endpoint.urlRequest(configuration: apiConfiguration)
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        if let bodyData = bodyData, let data = try? encoder.encode(bodyData) {
-            urlRequest?.httpBody = data
-        }
         return urlRequest
     }
-     */
     
     private func resolveEndpoint(for path: APIEndpointPath) -> Endpoint {
         switch path {
