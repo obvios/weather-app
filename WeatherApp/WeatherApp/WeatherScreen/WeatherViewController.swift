@@ -9,8 +9,14 @@ import UIKit
 import Combine
 
 class ViewController: UIViewController {
-    let viewModel = WeatherViewModel()
+    private let viewModel = WeatherViewModel()
     private var cancellables = Set<AnyCancellable>()
+    
+    // UI Components
+    private let textField = UITextField()
+    private let button = UIButton(type: .system)
+    private var labelsStackView = UIStackView()
+    private var topStackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
