@@ -14,8 +14,11 @@ struct WeatherData: Decodable {
 
 struct WeatherCondition: Decodable {
     let id: Int
+    /// main weather type (ie: Rain, Sunny)
     let main: String
+    /// additional description of main weather
     let description: String
+    /// name of icon to use to represent weather
     let icon: String
 }
 
