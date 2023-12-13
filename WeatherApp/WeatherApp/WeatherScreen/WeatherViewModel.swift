@@ -6,8 +6,20 @@
 //
 
 import Foundation
+import Combine
+import CoreLocation
 
 class WeatherViewModel {
+    private var locationManager: LocationManager = LocationManager()
+    private var cancellables = Set<AnyCancellable>()
+    
+    private func setupLocationUpdates() {
+        locationManager.locationPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] location in
+                //TODO: we received location, request weather for it
+            }.store(in: &cancellables)
+    }
 
     private func requestWeather(lat: Double, lon: Double) async throws -> WeatherData {
         let api = WeatherAPI()
