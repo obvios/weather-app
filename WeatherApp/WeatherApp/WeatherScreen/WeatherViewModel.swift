@@ -39,4 +39,9 @@ class WeatherViewModel {
     func loadLastSearchedCity() -> String? {
         return UserDefaults.standard.string(forKey: "lastSearchedCity")
     }
+    
+    func requestIconData(iconName: String) async throws -> Data {
+        let api = WeatherIconsAPI()
+        return try await api.requestIconData(iconName: iconName)
+    }
 }
