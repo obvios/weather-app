@@ -22,10 +22,35 @@ class WeatherViewModel {
         locationManager.locationPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] location in
-                //TODO: we received location, request weather for it
+                self?.onUserLocationReceived(location: location)
             }.store(in: &cancellables)
     }
-
+    
+    private func onUserLocationReceived(location: CLLocation) {
+        Task {
+            // get coordinates
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            // request weather data
+            let weatherData = try await requestWeather(lat: lat, lon: lon)
+            guard let weather = weatherData.weather.first else {
+                return
+            }
+            // request icon
+            let iconName = weather.icon
+            let iconData = try await requestIconData(iconName: iconName)
+            // build and publish UI data
+            let weatherUIData = WeatherScreenUIData(iconData: iconData,
+                                                    weather: weather.main,
+                                                    weatherDescription: weather.description,
+                                                    temperature: weatherData.main.temp,
+                                                    feelsLike: weatherData.main.feelsLike,
+                                                    minTemperature: weatherData.main.tempMin,
+                                                    maxTemperature: weatherData.main.tempMax)
+            // TODO: publish
+        }
+    }
+    
     private func requestWeather(lat: Double, lon: Double) async throws -> WeatherData {
         let api = WeatherAPI()
         return try await api.requestWeatherData(lat: lat, lon: lon)
