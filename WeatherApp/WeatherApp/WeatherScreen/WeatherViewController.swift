@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // build view hierarchy
         setupViews()
+        layoutViews()
         // TODO: tell vm we loaded
     }
     
@@ -63,6 +64,29 @@ class ViewController: UIViewController {
         weatherInfoStackView.addArrangedSubview(primaryWeather)
         weatherInfoStackView.addArrangedSubview(weatherDescription)
         weatherInfoStackView.addArrangedSubview(temperature)
+    }
+    
+    private func layoutViews() {
+        // Add stack views to the view
+        view.translatesAutoresizingMaskIntoConstraints = false
+        topStackView.translatesAutoresizingMaskIntoConstraints = false
+        weatherInfoStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(topStackView)
+        view.addSubview(weatherInfoStackView)
+
+        // Constraints for topStackView
+        NSLayoutConstraint.activate([
+            topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            topStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            topStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+
+        // Constraints for labelsStackView
+        NSLayoutConstraint.activate([
+            weatherInfoStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 20),
+            weatherInfoStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            weatherInfoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
     }
 
     private func observeViewModel() {
