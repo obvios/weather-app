@@ -11,22 +11,41 @@ import Combine
 
 class LocationManager: NSObject {
     private let locationManager = CLLocationManager()
-    let locationPublisher = PassthroughSubject<CLLocation, Never>()
+    private let locationSubject = PassthroughSubject<CLLocation, Never>()
+    
+    var locationPublisher: AnyPublisher<CLLocation, Never> {
+        locationSubject.eraseToAnyPublisher()
+    }
     
     override init() {
         super.init()
         locationManager.delegate = self
     }
     
-    func requestLocationPermission() {
+    private func requestLocationPermission() {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func startUpdatingLocation() {
+    private func startUpdatingLocation() {
         locationManager.startUpdatingLocation()
     }
     
-    func stopUpdatingLocation() {
+    private func stopUpdatingLocation() {
         locationManager.stopUpdatingLocation()
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .notDetermined:
+            requestLocationPermission()
+        case .restricted, .denied:
+            stopUpdatingLocation()
+        case .authorizedWhenInUse:
+            startUpdatingLocation()
+        default:
+            break
+        }
     }
 }

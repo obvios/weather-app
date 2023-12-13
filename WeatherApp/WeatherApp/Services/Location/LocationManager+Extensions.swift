@@ -8,17 +8,4 @@
 import Foundation
 import CoreLocation
 
-extension LocationManager: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .notDetermined:
-            requestLocationPermission()
-        case .restricted, .denied:
-            stopUpdatingLocation()
-        case .authorizedWhenInUse:
-            startUpdatingLocation()
-        default:
-            break
-        }
-    }
-}
+
