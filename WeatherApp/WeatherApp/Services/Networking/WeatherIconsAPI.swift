@@ -14,4 +14,14 @@ struct WeatherIconsAPI {
         let baseURL = "openweathermap.org"
         return APIConfiguration(apiKey: apiKey, baseURL: baseURL)
     }()
+    
+    func requestIconData(iconName: String) async throws -> Data {
+        let path = "/img/wn/" + iconName + "@1x.png"
+        let endpoint = Endpoint(path: path, method: .GET)
+        guard let urlRequest = endpoint.urlRequest(configuration: apiConfiguration), let url = urlRequest.url else {
+            throw APIError.unableToBuildRequest
+        }
+        let networkService = NetworkService()
+        return try await networkService.requestData(url)
+    }
 }
