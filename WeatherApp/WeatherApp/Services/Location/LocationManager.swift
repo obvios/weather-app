@@ -13,6 +13,11 @@ class LocationManager: NSObject {
     private let locationManager = CLLocationManager()
     let locationPublisher = PassthroughSubject<CLLocation, Never>()
     
+    override init() {
+        super.init()
+        locationManager.delegate = self
+    }
+    
     func requestLocationPermission() {
         locationManager.requestWhenInUseAuthorization()
     }
