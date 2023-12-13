@@ -31,6 +31,7 @@ class WeatherViewController: UIViewController {
     }
     
     private func setupViews() {
+        view.backgroundColor = .white
         // Configure Text Field
         textField.borderStyle = .roundedRect
         textField.placeholder = "Enter text"
