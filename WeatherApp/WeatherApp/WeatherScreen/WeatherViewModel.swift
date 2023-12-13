@@ -12,6 +12,11 @@ import CoreLocation
 class WeatherViewModel {
     private var locationManager: LocationManager = LocationManager()
     private var cancellables = Set<AnyCancellable>()
+    private var uiDataSubject = PassthroughSubject<WeatherScreenUIData, Never>()
+    
+    var uiDataPublisher: AnyPublisher<WeatherScreenUIData, Never> {
+        uiDataSubject.eraseToAnyPublisher()
+    }
     
     private func setupLocationUpdates() {
         locationManager.locationPublisher
