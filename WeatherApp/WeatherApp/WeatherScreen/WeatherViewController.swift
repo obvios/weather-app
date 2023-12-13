@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     private var topStackView = UIStackView()
     private var weatherInfoStackView = UIStackView()
     private var weatherIcon = UIImageView()
+    private var primaryWeather = UILabel()
+    private var weatherDescription = UILabel()
+    private var temperature = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,12 @@ class ViewController: UIViewController {
         topStackView.spacing = 8
         topStackView.addArrangedSubview(textField)
         topStackView.addArrangedSubview(button)
+        
+        // configure weather data components
+        weatherIcon.image = UIImage(named: "NoImage")
+        primaryWeather.text = "--"
+        weatherDescription.text = "--"
+        temperature.text = "--"
 
         // Configure Labels Stack View
         weatherInfoStackView.axis = .vertical
@@ -49,12 +58,11 @@ class ViewController: UIViewController {
         weatherInfoStackView.distribution = .equalSpacing
         weatherInfoStackView.spacing = 8
 
-        // Add sample labels
-        for i in 1...5 {
-            let label = UILabel()
-            label.text = "Label \(i)"
-            weatherInfoStackView.addArrangedSubview(label)
-        }
+        // Add weather labels to stack
+        weatherInfoStackView.addArrangedSubview(weatherIcon)
+        weatherInfoStackView.addArrangedSubview(primaryWeather)
+        weatherInfoStackView.addArrangedSubview(weatherDescription)
+        weatherInfoStackView.addArrangedSubview(temperature)
     }
 
     private func observeViewModel() {
