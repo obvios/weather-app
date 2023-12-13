@@ -24,7 +24,11 @@ class NetworkService {
     /// Request raw data from `URL`
     func requestData(_ url: URL) async throws -> Data {
         let (data, response) = try await session.data(from: url)
-        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw NetworkError.invalidResponse
+        }
+        guard (200...299).contains(httpResponse.statusCode) else {
+            print("NetworkService: status code - \(httpResponse.statusCode)")
             throw NetworkError.invalidResponse
         }
         return data
