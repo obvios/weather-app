@@ -29,6 +29,9 @@ struct Endpoint {
         urlComponents.host = configuration.baseURL
         urlComponents.path = path
         urlComponents.queryItems = parameters
+        if let apiKey = configuration.apiKey {
+            urlComponents.queryItems?.append(.init(name: "appid", value: apiKey))
+        }
         guard let url = urlComponents.url else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
