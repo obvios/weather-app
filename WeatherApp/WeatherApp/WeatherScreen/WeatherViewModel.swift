@@ -18,12 +18,13 @@ class WeatherViewModel {
         uiDataSubject.eraseToAnyPublisher()
     }
     
-    // TODO: Don't do on init, wait for controller to load
-    init() {
+    /// Called by views when they are ready.
+    func onViewLoaded() {
         displayCachedCityWeather()
         setupLocationUpdates()
     }
     
+    /// Called by view when user enters search criteria
     func onUserCitySearch(cityName: String) {
         Task {
             // save city to cache
