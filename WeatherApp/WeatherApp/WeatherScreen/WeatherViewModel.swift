@@ -26,6 +26,9 @@ class WeatherViewModel {
     
     func onUserCitySearch(cityName: String) {
         Task {
+            // save city to cache
+            saveLastSearchedCity(cityName: cityName)
+            // request weather data
             let weatherData = try await requestWeather(cityName: cityName)
             guard let weather = weatherData.weather.first else {
                 return
