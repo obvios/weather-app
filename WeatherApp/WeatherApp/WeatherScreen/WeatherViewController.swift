@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ViewController: UIViewController {
+class WeatherViewController: UIViewController {
     private let viewModel = WeatherViewModel()
     private var cancellables = Set<AnyCancellable>()
     
