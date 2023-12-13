@@ -12,7 +12,7 @@ import CoreLocation
 class WeatherViewModel {
     private var locationManager: LocationManager = LocationManager()
     private var cancellables = Set<AnyCancellable>()
-    private var uiDataSubject = PassthroughSubject<WeatherScreenUIData, Never>()
+    private let uiDataSubject = PassthroughSubject<WeatherScreenUIData, Never>()
     
     var uiDataPublisher: AnyPublisher<WeatherScreenUIData, Never> {
         uiDataSubject.eraseToAnyPublisher()
@@ -47,7 +47,8 @@ class WeatherViewModel {
                                                     feelsLike: weatherData.main.feelsLike,
                                                     minTemperature: weatherData.main.tempMin,
                                                     maxTemperature: weatherData.main.tempMax)
-            // TODO: publish
+            // publish
+            uiDataSubject.send(weatherUIData)
         }
     }
     
