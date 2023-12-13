@@ -22,6 +22,28 @@ class WeatherViewModel {
         setupLocationUpdates()
     }
     
+    func onUserCitySearch(cityName: String) {
+        Task {
+            let weatherData = try await requestWeather(cityName: cityName)
+            guard let weather = weatherData.weather.first else {
+                return
+            }
+            // request icon
+            let iconName = weather.icon
+            let iconData = try await requestIconData(iconName: iconName)
+            // build and publish UI data
+            let weatherUIData = WeatherScreenUIData(iconData: iconData,
+                                                    weather: weather.main,
+                                                    weatherDescription: weather.description,
+                                                    temperature: weatherData.main.temp,
+                                                    feelsLike: weatherData.main.feelsLike,
+                                                    minTemperature: weatherData.main.tempMin,
+                                                    maxTemperature: weatherData.main.tempMax)
+            // publish
+            uiDataSubject.send(weatherUIData)
+        }
+    }
+    
     private func setupLocationUpdates() {
         locationManager.locationPublisher
             .receive(on: DispatchQueue.main)
