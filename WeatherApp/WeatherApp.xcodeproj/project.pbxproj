@@ -24,6 +24,7 @@
 		55C2BE062B2897C60088A485 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE052B2897C60088A485 /* APIConfiguration.swift */; };
 		55C2BE082B289B5E0088A485 /* CityCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE072B289B5E0088A485 /* CityCoordinates.swift */; };
 		55C2BE0D2B2933A00088A485 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE0C2B2933A00088A485 /* LocationManager.swift */; };
+		55C2BE122B29CB790088A485 /* WeatherIconsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE112B29CB790088A485 /* WeatherIconsAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		55C2BE052B2897C60088A485 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		55C2BE072B289B5E0088A485 /* CityCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCoordinates.swift; sourceTree = "<group>"; };
 		55C2BE0C2B2933A00088A485 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		55C2BE112B29CB790088A485 /* WeatherIconsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				55C2BE052B2897C60088A485 /* APIConfiguration.swift */,
 				55C2BE012B2885D00088A485 /* NetworkService.swift */,
 				55C2BE032B2889030088A485 /* WeatherAPI.swift */,
+				55C2BE112B29CB790088A485 /* WeatherIconsAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				55C2BE082B289B5E0088A485 /* CityCoordinates.swift in Sources */,
 				55C2BE042B2889030088A485 /* WeatherAPI.swift in Sources */,
 				55C2BDCB2B27E7930088A485 /* SceneDelegate.swift in Sources */,
+				55C2BE122B29CB790088A485 /* WeatherIconsAPI.swift in Sources */,
 				55C2BE022B2885D00088A485 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
