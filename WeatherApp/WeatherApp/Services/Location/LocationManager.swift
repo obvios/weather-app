@@ -48,4 +48,12 @@ extension LocationManager: CLLocationManagerDelegate {
             break
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // only interested in latest location
+        guard let location = locations.last else {
+            return
+        }
+        locationSubject.send(location)
+    }
 }
