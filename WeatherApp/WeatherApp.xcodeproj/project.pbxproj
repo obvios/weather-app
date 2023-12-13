@@ -24,6 +24,7 @@
 		55C2BE062B2897C60088A485 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE052B2897C60088A485 /* APIConfiguration.swift */; };
 		55C2BE082B289B5E0088A485 /* CityCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE072B289B5E0088A485 /* CityCoordinates.swift */; };
 		55C2BE0D2B2933A00088A485 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE0C2B2933A00088A485 /* LocationManager.swift */; };
+		55C2BE0F2B2935A70088A485 /* LocationManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE0E2B2935A70088A485 /* LocationManager+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		55C2BE052B2897C60088A485 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		55C2BE072B289B5E0088A485 /* CityCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCoordinates.swift; sourceTree = "<group>"; };
 		55C2BE0C2B2933A00088A485 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		55C2BE0E2B2935A70088A485 /* LocationManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationManager+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				55C2BE0B2B28AA3C0088A485 /* Networking */,
 				55C2BE0C2B2933A00088A485 /* LocationManager.swift */,
+				55C2BE0E2B2935A70088A485 /* LocationManager+Extensions.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				55C2BDFD2B27EAAF0088A485 /* WeatherData.swift in Sources */,
 				55C2BDF92B27E99E0088A485 /* WeatherViewModel.swift in Sources */,
 				55C2BE0D2B2933A00088A485 /* LocationManager.swift in Sources */,
+				55C2BE0F2B2935A70088A485 /* LocationManager+Extensions.swift in Sources */,
 				55C2BDC92B27E7930088A485 /* AppDelegate.swift in Sources */,
 				55C2BE062B2897C60088A485 /* APIConfiguration.swift in Sources */,
 				55C2BE002B2884770088A485 /* Endpoint.swift in Sources */,
