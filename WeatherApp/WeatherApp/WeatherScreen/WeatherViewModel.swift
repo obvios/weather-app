@@ -18,7 +18,9 @@ class WeatherViewModel {
         uiDataSubject.eraseToAnyPublisher()
     }
     
+    // TODO: Don't do on init, wait for controller to load
     init() {
+        displayCachedCityWeather()
         setupLocationUpdates()
     }
     
@@ -42,6 +44,13 @@ class WeatherViewModel {
             // publish
             uiDataSubject.send(weatherUIData)
         }
+    }
+    
+    private func displayCachedCityWeather() {
+        guard let cityName = loadLastSearchedCity() else {
+            return
+        }
+        onUserCitySearch(cityName: cityName)
     }
     
     private func setupLocationUpdates() {
