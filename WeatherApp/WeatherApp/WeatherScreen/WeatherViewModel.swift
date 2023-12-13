@@ -50,3 +50,14 @@ class WeatherViewModel {
         return try await api.requestIconData(iconName: iconName)
     }
 }
+
+/// Data struct used by UI
+struct WeatherScreenUIData {
+    let iconData: Data
+    let weather: String
+    let weatherDescription: String
+    let temperature: Double
+    let feelsLike: Double
+    let minTemperature: Double
+    let maxTemperature: Double
+}
