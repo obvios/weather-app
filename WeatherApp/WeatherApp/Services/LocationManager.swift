@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import CoreLocation
+import Combine
+
+class LocationManager {
+    private let locationManager = CLLocationManager()
+    let locationPublisher = PassthroughSubject<CLLocation, Never>()
+    
+    
+}
