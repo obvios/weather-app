@@ -27,6 +27,7 @@ class WeatherViewController: UIViewController {
         // build view hierarchy
         setupViews()
         layoutViews()
+        observeViewModel()
         viewModel.onViewLoaded()
     }
     
