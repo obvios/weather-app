@@ -38,7 +38,7 @@ class WeatherViewController: UIViewController {
 
         // Configure Button
         button.setTitle("Press Me", for: .normal)
-        // TODO: Add button action
+        button.addTarget(self, action: #selector(searchButtonClicked), for: .touchDown)
         
         // Configure Top Stack View
         topStackView.axis = .horizontal
@@ -89,13 +89,24 @@ class WeatherViewController: UIViewController {
             weatherInfoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
+    
+    @objc
+    func searchButtonClicked() {
+        // get textfield text
+        guard let cityName = textField.text else { return }
+        // call vm
+        viewModel.onUserCitySearch(cityName: cityName)
+    }
 
     private func observeViewModel() {
         viewModel.uiDataPublisher
             .receive(on: DispatchQueue.main)
-            .sink { uiData in
-                // TODO: Update UI
-            }
+            .sink { [weak self] uiData in
+                self?.weatherIcon.image = UIImage(data: uiData.iconData)
+                self?.primaryWeather.text = uiData.weather
+                self?.weatherDescription.text = uiData.weatherDescription
+                self?.temperature.text = String(uiData.temperature)
+            }.store(in: &cancellables)
     }
 }
 
