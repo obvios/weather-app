@@ -18,6 +18,10 @@ class WeatherViewModel {
         uiDataSubject.eraseToAnyPublisher()
     }
     
+    init() {
+        setupLocationUpdates()
+    }
+    
     private func setupLocationUpdates() {
         locationManager.locationPublisher
             .receive(on: DispatchQueue.main)
