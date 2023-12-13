@@ -27,7 +27,7 @@ class WeatherViewController: UIViewController {
         // build view hierarchy
         setupViews()
         layoutViews()
-        // TODO: tell vm we loaded
+        viewModel.onViewLoaded()
     }
     
     private func setupViews() {
