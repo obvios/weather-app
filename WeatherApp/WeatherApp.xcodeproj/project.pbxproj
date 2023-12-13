@@ -169,8 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				55C2BE0B2B28AA3C0088A485 /* Networking */,
-				55C2BE0C2B2933A00088A485 /* LocationManager.swift */,
-				55C2BE0E2B2935A70088A485 /* LocationManager+Extensions.swift */,
+				55C2BE102B2939900088A485 /* Location */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -184,6 +183,15 @@
 				55C2BE032B2889030088A485 /* WeatherAPI.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		55C2BE102B2939900088A485 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				55C2BE0C2B2933A00088A485 /* LocationManager.swift */,
+				55C2BE0E2B2935A70088A485 /* LocationManager+Extensions.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
