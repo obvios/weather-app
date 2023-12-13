@@ -12,7 +12,7 @@ enum APIError: Error {
 }
 
 struct APIConfiguration {
-    let apiKey: String
+    let apiKey: String?
     let baseURL: String
     let scheme: String = "https"
     
@@ -23,7 +23,7 @@ struct APIConfiguration {
         return headers
     }
     
-    init(apiKey: String, baseURL: String) {
+    init(apiKey: String?, baseURL: String) {
         self.apiKey = apiKey
         self.baseURL = baseURL
     }
