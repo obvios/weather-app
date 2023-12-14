@@ -12,6 +12,7 @@ import Combine
 class LocationManager: NSObject {
     private let locationManager = CLLocationManager()
     private let locationSubject = PassthroughSubject<CLLocation, Never>()
+    private var lastUsedLocationTimestamp: Date?
     
     var locationPublisher: AnyPublisher<CLLocation, Never> {
         locationSubject.eraseToAnyPublisher()
@@ -54,6 +55,14 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = locations.last else {
             return
         }
+        
+        // only want updates that are more than 1 minute apart. Did this so location updates don't constantly
+        // override user city search.
+        if let lastDate = lastUsedLocationTimestamp, location.timestamp.timeIntervalSince(lastDate) < 60 {
+            return
+        }
+        
+        lastUsedLocationTimestamp = location.timestamp
         locationSubject.send(location)
     }
 }
