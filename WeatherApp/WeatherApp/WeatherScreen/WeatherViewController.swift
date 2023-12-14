@@ -80,18 +80,14 @@ class WeatherViewController: UIViewController {
         view.addSubview(weatherIcon)
         view.addSubview(weatherInfoStackView)
 
-        // Constraints for topStackView
         NSLayoutConstraint.activate([
             topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             topStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             topStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
             weatherIcon.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
-            weatherIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-
-        // Constraints for labelsStackView
-        NSLayoutConstraint.activate([
+            weatherIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
             weatherInfoStackView.topAnchor.constraint(equalTo: weatherIcon.bottomAnchor, constant: 20),
             weatherInfoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             weatherInfoStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
