@@ -12,6 +12,7 @@ enum HTTPMethod: String {
     case POST = "POST"
 }
 
+/// Represents a network endpoint. Used to build URLRequests.
 struct Endpoint {
     let path: String
     let method: HTTPMethod
