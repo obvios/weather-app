@@ -18,6 +18,8 @@ class WeatherViewController: UIViewController {
     private var topStackView = UIStackView()
     private var weatherInfoStackView = UIStackView()
     private var weatherIcon = UIImageView()
+    // add to stack
+    private var locationName = UILabel()
     private var primaryWeather = UILabel()
     private var weatherDescription = UILabel()
     private var temperature = UILabel()
@@ -51,6 +53,7 @@ class WeatherViewController: UIViewController {
         
         // configure weather data components
         weatherIcon.image = UIImage(named: "NoImage")
+        locationName.text = "--"
         primaryWeather.text = "--"
         weatherDescription.text = "--"
         temperature.text = "--"
@@ -63,6 +66,7 @@ class WeatherViewController: UIViewController {
 
         // Add weather labels to stack
         weatherInfoStackView.addArrangedSubview(weatherIcon)
+        weatherInfoStackView.addArrangedSubview(locationName)
         weatherInfoStackView.addArrangedSubview(primaryWeather)
         weatherInfoStackView.addArrangedSubview(weatherDescription)
         weatherInfoStackView.addArrangedSubview(temperature)
@@ -106,6 +110,7 @@ class WeatherViewController: UIViewController {
                 self?.weatherIcon.image = UIImage(data: uiData.iconData)
                 // Instead of setting labels like this by concatenating string, would normally
                 // use a horizontal UIStack
+                self?.locationName.text = "Location: " + uiData.cityName
                 self?.primaryWeather.text = "Weather: " + uiData.weather
                 self?.weatherDescription.text = "Description: " + uiData.weatherDescription
                 self?.temperature.text = "Temperature: " + String(uiData.temperature) + " Kelvin"
