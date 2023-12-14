@@ -14,7 +14,7 @@ class WeatherViewController: UIViewController {
     
     // UI Components
     private let searchButton = UIButton(type: .system)
-    private var topStackView: UIStackView = {
+    private var searchStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -64,7 +64,6 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // build view hierarchy
         setupViews()
         layoutViews()
         observeViewModel()
@@ -79,8 +78,8 @@ class WeatherViewController: UIViewController {
         searchButton.addTarget(self, action: #selector(searchButtonClicked), for: .touchDown)
         
         // Add search components to stack view
-        topStackView.addArrangedSubview(searchTextField)
-        topStackView.addArrangedSubview(searchButton)
+        searchStackView.addArrangedSubview(searchTextField)
+        searchStackView.addArrangedSubview(searchButton)
 
         // Add weather info components to stack view
         weatherInfoStackView.addArrangedSubview(locationNameLabel)
@@ -91,19 +90,19 @@ class WeatherViewController: UIViewController {
     
     private func layoutViews() {
         view.translatesAutoresizingMaskIntoConstraints = false
-        topStackView.translatesAutoresizingMaskIntoConstraints = false
+        searchStackView.translatesAutoresizingMaskIntoConstraints = false
         weatherIcon.translatesAutoresizingMaskIntoConstraints = false
         weatherInfoStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(topStackView)
+        view.addSubview(searchStackView)
         view.addSubview(weatherIcon)
         view.addSubview(weatherInfoStackView)
 
         NSLayoutConstraint.activate([
-            topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            topStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            topStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            searchStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            searchStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            searchStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
-            weatherIcon.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
+            weatherIcon.topAnchor.constraint(equalTo: searchStackView.bottomAnchor, constant: 10),
             weatherIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             weatherInfoStackView.topAnchor.constraint(equalTo: weatherIcon.bottomAnchor, constant: 20),
