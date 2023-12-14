@@ -83,8 +83,8 @@ class WeatherViewController: UIViewController {
         // Constraints for topStackView
         NSLayoutConstraint.activate([
             topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            topStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            topStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            topStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            topStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
             weatherIcon.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
             weatherIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -93,8 +93,8 @@ class WeatherViewController: UIViewController {
         // Constraints for labelsStackView
         NSLayoutConstraint.activate([
             weatherInfoStackView.topAnchor.constraint(equalTo: weatherIcon.bottomAnchor, constant: 20),
-            weatherInfoStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            weatherInfoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            weatherInfoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            weatherInfoStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
     }
     
