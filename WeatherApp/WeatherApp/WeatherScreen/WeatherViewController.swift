@@ -13,15 +13,40 @@ class WeatherViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     // UI Components
-    private let searchTextField = UITextField()
+    private let searchTextField: UITextField = {
+        let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "Enter city"
+        return textField
+    }()
     private let searchButton = UIButton(type: .system)
     private var topStackView = UIStackView()
     private var weatherInfoStackView = UIStackView()
-    private var weatherIcon = UIImageView()
-    private var locationNameLabel = UILabel()
-    private var primaryWeatherLabel = UILabel()
-    private var weatherDescriptionLabel = UILabel()
-    private var temperatureLabel = UILabel()
+    private let weatherIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "NoImage")
+        return imageView
+    }()
+    private var locationNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "--"
+        return label
+    }()
+    private var primaryWeatherLabel: UILabel = {
+        let label = UILabel()
+        label.text = "--"
+        return label
+    }()
+    private var weatherDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "--"
+        return label
+    }()
+    private var temperatureLabel: UILabel = {
+        let label = UILabel()
+        label.text = "--"
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +59,6 @@ class WeatherViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .white
-        // Configure Text Field
-        searchTextField.borderStyle = .roundedRect
-        searchTextField.placeholder = "Enter city"
 
         // Configure Button
         searchButton.setTitle("Search", for: .normal)
@@ -49,21 +71,12 @@ class WeatherViewController: UIViewController {
         topStackView.spacing = 8
         topStackView.addArrangedSubview(searchTextField)
         topStackView.addArrangedSubview(searchButton)
-        
-        // configure weather data components
-        weatherIcon.image = UIImage(named: "NoImage")
-        locationNameLabel.text = "--"
-        primaryWeatherLabel.text = "--"
-        weatherDescriptionLabel.text = "--"
-        temperatureLabel.text = "--"
 
         // Configure Labels Stack View
         weatherInfoStackView.axis = .vertical
         weatherInfoStackView.alignment = .fill
         weatherInfoStackView.distribution = .equalSpacing
         weatherInfoStackView.spacing = 8
-
-        // Add weather labels to stack
         weatherInfoStackView.addArrangedSubview(locationNameLabel)
         weatherInfoStackView.addArrangedSubview(primaryWeatherLabel)
         weatherInfoStackView.addArrangedSubview(weatherDescriptionLabel)
