@@ -36,7 +36,7 @@ class WeatherViewController: UIViewController {
         textField.placeholder = "Enter city"
         return textField
     }()
-    private let weatherIcon: UIImageView = {
+    private let weatherIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "NoImage")
         return imageView
@@ -91,10 +91,10 @@ class WeatherViewController: UIViewController {
     private func layoutViews() {
         view.translatesAutoresizingMaskIntoConstraints = false
         searchStackView.translatesAutoresizingMaskIntoConstraints = false
-        weatherIcon.translatesAutoresizingMaskIntoConstraints = false
+        weatherIconImageView.translatesAutoresizingMaskIntoConstraints = false
         weatherInfoStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(searchStackView)
-        view.addSubview(weatherIcon)
+        view.addSubview(weatherIconImageView)
         view.addSubview(weatherInfoStackView)
 
         NSLayoutConstraint.activate([
@@ -102,10 +102,10 @@ class WeatherViewController: UIViewController {
             searchStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             searchStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
-            weatherIcon.topAnchor.constraint(equalTo: searchStackView.bottomAnchor, constant: 10),
-            weatherIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            weatherIconImageView.topAnchor.constraint(equalTo: searchStackView.bottomAnchor, constant: 10),
+            weatherIconImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            weatherInfoStackView.topAnchor.constraint(equalTo: weatherIcon.bottomAnchor, constant: 20),
+            weatherInfoStackView.topAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor, constant: 20),
             weatherInfoStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             weatherInfoStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
@@ -130,7 +130,7 @@ class WeatherViewController: UIViewController {
     private func updateUI(with weatherData: WeatherScreenUIData) {
         // Instead of setting labels like this by concatenating string, would normally
         // use a horizontal UIStack
-        weatherIcon.image = UIImage(data: weatherData.iconData)
+        weatherIconImageView.image = UIImage(data: weatherData.iconData)
         locationNameLabel.text = "Location: " + weatherData.cityName
         primaryWeatherLabel.text = "Weather: " + weatherData.weather
         weatherDescriptionLabel.text = "Description: " + weatherData.weatherDescription
