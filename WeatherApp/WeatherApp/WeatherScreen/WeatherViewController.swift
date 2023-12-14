@@ -64,7 +64,6 @@ class WeatherViewController: UIViewController {
         weatherInfoStackView.spacing = 8
 
         // Add weather labels to stack
-        weatherInfoStackView.addArrangedSubview(weatherIcon)
         weatherInfoStackView.addArrangedSubview(locationNameLabel)
         weatherInfoStackView.addArrangedSubview(primaryWeatherLabel)
         weatherInfoStackView.addArrangedSubview(weatherDescriptionLabel)
@@ -75,20 +74,25 @@ class WeatherViewController: UIViewController {
         // Add stack views to the view
         view.translatesAutoresizingMaskIntoConstraints = false
         topStackView.translatesAutoresizingMaskIntoConstraints = false
+        weatherIcon.translatesAutoresizingMaskIntoConstraints = false
         weatherInfoStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(topStackView)
+        view.addSubview(weatherIcon)
         view.addSubview(weatherInfoStackView)
 
         // Constraints for topStackView
         NSLayoutConstraint.activate([
             topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             topStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            topStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            topStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            weatherIcon.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
+            weatherIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
 
         // Constraints for labelsStackView
         NSLayoutConstraint.activate([
-            weatherInfoStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 20),
+            weatherInfoStackView.topAnchor.constraint(equalTo: weatherIcon.bottomAnchor, constant: 20),
             weatherInfoStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             weatherInfoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
