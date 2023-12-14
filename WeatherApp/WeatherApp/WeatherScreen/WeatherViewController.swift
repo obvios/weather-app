@@ -38,7 +38,7 @@ class WeatherViewController: UIViewController {
         textField.placeholder = "Enter text"
 
         // Configure Button
-        button.setTitle("Press Me", for: .normal)
+        button.setTitle("Go", for: .normal)
         button.addTarget(self, action: #selector(searchButtonClicked), for: .touchDown)
         
         // Configure Top Stack View
@@ -104,9 +104,11 @@ class WeatherViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] uiData in
                 self?.weatherIcon.image = UIImage(data: uiData.iconData)
-                self?.primaryWeather.text = uiData.weather
-                self?.weatherDescription.text = uiData.weatherDescription
-                self?.temperature.text = String(uiData.temperature)
+                // Instead of setting labels like this by concatenating string, would normally
+                // use a horizontal UIStack
+                self?.primaryWeather.text = "Weather: " + uiData.weather
+                self?.weatherDescription.text = "Description: " + uiData.weatherDescription
+                self?.temperature.text = "Temperature: " + String(uiData.temperature) + " Kelvin"
             }.store(in: &cancellables)
     }
 }
