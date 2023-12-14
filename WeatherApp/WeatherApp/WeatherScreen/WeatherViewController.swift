@@ -18,7 +18,6 @@ class WeatherViewController: UIViewController {
     private var topStackView = UIStackView()
     private var weatherInfoStackView = UIStackView()
     private var weatherIcon = UIImageView()
-    // add to stack
     private var locationNameLabel = UILabel()
     private var primaryWeatherLabel = UILabel()
     private var weatherDescriptionLabel = UILabel()
