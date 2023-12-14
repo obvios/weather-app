@@ -15,7 +15,7 @@ struct WeatherAPI {
     
     let apiConfiguration: APIConfiguration = {
         // Normally would not hard code api key in code base
-        let apiKey = "testKey"
+        let apiKey = "d3229cf39d972082dd5db09da0e63165"
         let baseURL = "api.openweathermap.org"
         return APIConfiguration(apiKey: apiKey, baseURL: baseURL)
     }()
