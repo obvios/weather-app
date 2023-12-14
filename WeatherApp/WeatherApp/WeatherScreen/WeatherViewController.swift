@@ -13,16 +13,16 @@ class WeatherViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     // UI Components
-    private let textField = UITextField()
-    private let button = UIButton(type: .system)
+    private let searchTextField = UITextField()
+    private let searchButton = UIButton(type: .system)
     private var topStackView = UIStackView()
     private var weatherInfoStackView = UIStackView()
     private var weatherIcon = UIImageView()
     // add to stack
-    private var locationName = UILabel()
-    private var primaryWeather = UILabel()
-    private var weatherDescription = UILabel()
-    private var temperature = UILabel()
+    private var locationNameLabel = UILabel()
+    private var primaryWeatherLabel = UILabel()
+    private var weatherDescriptionLabel = UILabel()
+    private var temperatureLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,27 +36,27 @@ class WeatherViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .white
         // Configure Text Field
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Enter text"
+        searchTextField.borderStyle = .roundedRect
+        searchTextField.placeholder = "Enter text"
 
         // Configure Button
-        button.setTitle("Go", for: .normal)
-        button.addTarget(self, action: #selector(searchButtonClicked), for: .touchDown)
+        searchButton.setTitle("Search", for: .normal)
+        searchButton.addTarget(self, action: #selector(searchButtonClicked), for: .touchDown)
         
         // Configure Top Stack View
         topStackView.axis = .horizontal
         topStackView.alignment = .center
         topStackView.distribution = .fill
         topStackView.spacing = 8
-        topStackView.addArrangedSubview(textField)
-        topStackView.addArrangedSubview(button)
+        topStackView.addArrangedSubview(searchTextField)
+        topStackView.addArrangedSubview(searchButton)
         
         // configure weather data components
         weatherIcon.image = UIImage(named: "NoImage")
-        locationName.text = "--"
-        primaryWeather.text = "--"
-        weatherDescription.text = "--"
-        temperature.text = "--"
+        locationNameLabel.text = "--"
+        primaryWeatherLabel.text = "--"
+        weatherDescriptionLabel.text = "--"
+        temperatureLabel.text = "--"
 
         // Configure Labels Stack View
         weatherInfoStackView.axis = .vertical
@@ -66,10 +66,10 @@ class WeatherViewController: UIViewController {
 
         // Add weather labels to stack
         weatherInfoStackView.addArrangedSubview(weatherIcon)
-        weatherInfoStackView.addArrangedSubview(locationName)
-        weatherInfoStackView.addArrangedSubview(primaryWeather)
-        weatherInfoStackView.addArrangedSubview(weatherDescription)
-        weatherInfoStackView.addArrangedSubview(temperature)
+        weatherInfoStackView.addArrangedSubview(locationNameLabel)
+        weatherInfoStackView.addArrangedSubview(primaryWeatherLabel)
+        weatherInfoStackView.addArrangedSubview(weatherDescriptionLabel)
+        weatherInfoStackView.addArrangedSubview(temperatureLabel)
     }
     
     private func layoutViews() {
@@ -98,7 +98,7 @@ class WeatherViewController: UIViewController {
     @objc
     func searchButtonClicked() {
         // get textfield text
-        guard let cityName = textField.text else { return }
+        guard let cityName = searchTextField.text else { return }
         // call vm
         viewModel.onUserCitySearch(cityName: cityName)
     }
@@ -110,10 +110,10 @@ class WeatherViewController: UIViewController {
                 self?.weatherIcon.image = UIImage(data: uiData.iconData)
                 // Instead of setting labels like this by concatenating string, would normally
                 // use a horizontal UIStack
-                self?.locationName.text = "Location: " + uiData.cityName
-                self?.primaryWeather.text = "Weather: " + uiData.weather
-                self?.weatherDescription.text = "Description: " + uiData.weatherDescription
-                self?.temperature.text = "Temperature: " + String(uiData.temperature) + " Kelvin"
+                self?.locationNameLabel.text = "Location: " + uiData.cityName
+                self?.primaryWeatherLabel.text = "Weather: " + uiData.weather
+                self?.weatherDescriptionLabel.text = "Description: " + uiData.weatherDescription
+                self?.temperatureLabel.text = "Temperature: " + String(uiData.temperature) + " Kelvin"
             }.store(in: &cancellables)
     }
 }
