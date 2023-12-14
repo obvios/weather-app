@@ -39,6 +39,7 @@ class WeatherViewModel {
             let iconData = try await requestIconData(iconName: iconName)
             // build and publish UI data
             let weatherUIData = WeatherScreenUIData(iconData: iconData,
+                                                    cityName: weatherData.name,
                                                     weather: weather.main,
                                                     weatherDescription: weather.description,
                                                     temperature: weatherData.main.temp,
@@ -80,6 +81,7 @@ class WeatherViewModel {
             let iconData = try await requestIconData(iconName: iconName)
             // build and publish UI data
             let weatherUIData = WeatherScreenUIData(iconData: iconData,
+                                                    cityName: weatherData.name,
                                                     weather: weather.main,
                                                     weatherDescription: weather.description,
                                                     temperature: weatherData.main.temp,
@@ -124,6 +126,7 @@ class WeatherViewModel {
 /// Data struct used by UI
 struct WeatherScreenUIData {
     let iconData: Data
+    let cityName: String
     let weather: String
     let weatherDescription: String
     let temperature: Double
