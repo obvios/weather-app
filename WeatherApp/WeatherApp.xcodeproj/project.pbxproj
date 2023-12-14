@@ -122,6 +122,7 @@
 				55C2BDFA2B27EA520088A485 /* WeatherScreen */,
 				55C2BDFB2B27EA6F0088A485 /* Models */,
 				55C2BDFE2B2883EB0088A485 /* Services */,
+				55D4493A2B2B424600F35C59 /* Extensions */,
 				55C2BDCE2B27E7930088A485 /* Main.storyboard */,
 				55C2BDD12B27E7990088A485 /* Assets.xcassets */,
 				55C2BDD32B27E7990088A485 /* LaunchScreen.storyboard */,
@@ -208,6 +209,13 @@
 				55C2BE112B29CB790088A485 /* WeatherIconsAPI.swift */,
 			);
 			path = APIs;
+			sourceTree = "<group>";
+		};
+		55D4493A2B2B424600F35C59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
