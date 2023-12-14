@@ -57,7 +57,7 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         
         // only want updates that are more than 1 minute apart. Did this so location updates don't
-        // override user city search constantly and immediately.
+        // override user city search constantly and too frequently.
         if let lastDate = lastUsedLocationTimestamp, location.timestamp.timeIntervalSince(lastDate) < 60 {
             return
         }
