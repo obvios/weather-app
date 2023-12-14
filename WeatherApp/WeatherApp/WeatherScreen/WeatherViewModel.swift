@@ -111,13 +111,11 @@ class WeatherViewModel {
     }
 
     private func saveLastSearchedCity(cityName: String) {
-        // could have created an extension on UserDefaults with an Enum for keys
-        UserDefaults.standard.set(cityName, forKey: "lastSearchedCity")
+        UserDefaults.standard.setStringValue(for: .lastSearchedCity, to: cityName)
     }
 
     private func loadLastSearchedCity() -> String? {
-        // could have created an extension on UserDefaults with an Enum for keys
-        return UserDefaults.standard.string(forKey: "lastSearchedCity")
+        UserDefaults.standard.stringValue(for: .lastSearchedCity)
     }
     
     private func requestIconData(iconName: String) async throws -> Data {
