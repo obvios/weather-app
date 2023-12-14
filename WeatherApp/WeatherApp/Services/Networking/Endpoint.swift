@@ -23,12 +23,16 @@ struct Endpoint {
         self.parameters = parameters
     }
     
+    /// Builds and reuturns URLRequest from this Endpoint instance.
     func urlRequest(configuration: APIConfiguration) -> URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = configuration.scheme
         urlComponents.host = configuration.baseURL
         urlComponents.path = path
         urlComponents.queryItems = parameters
+        // took shortcut here. This logic is coupled to
+        // how the wether api accepts api key. Other apis may
+        // prefer it in header for example.
         if let apiKey = configuration.apiKey {
             urlComponents.queryItems?.append(.init(name: "appid", value: apiKey))
         }
