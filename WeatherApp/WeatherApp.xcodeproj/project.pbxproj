@@ -25,6 +25,7 @@
 		55C2BE082B289B5E0088A485 /* CityCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE072B289B5E0088A485 /* CityCoordinates.swift */; };
 		55C2BE0D2B2933A00088A485 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE0C2B2933A00088A485 /* LocationManager.swift */; };
 		55C2BE122B29CB790088A485 /* WeatherIconsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C2BE112B29CB790088A485 /* WeatherIconsAPI.swift */; };
+		55D4493C2B2B426F00F35C59 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D4493B2B2B426F00F35C59 /* UserDefaults+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		55C2BE072B289B5E0088A485 /* CityCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCoordinates.swift; sourceTree = "<group>"; };
 		55C2BE0C2B2933A00088A485 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		55C2BE112B29CB790088A485 /* WeatherIconsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconsAPI.swift; sourceTree = "<group>"; };
+		55D4493B2B2B426F00F35C59 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 		55D4493A2B2B424600F35C59 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				55D4493B2B2B426F00F35C59 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D4493C2B2B426F00F35C59 /* UserDefaults+Extensions.swift in Sources */,
 				55C2BDCD2B27E7930088A485 /* WeatherViewController.swift in Sources */,
 				55C2BDFD2B27EAAF0088A485 /* WeatherData.swift in Sources */,
 				55C2BDF92B27E99E0088A485 /* WeatherViewModel.swift in Sources */,
