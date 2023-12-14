@@ -11,6 +11,7 @@ enum APIError: Error {
     case unableToBuildRequest
 }
 
+/// Used to configure API endpoints
 struct APIConfiguration {
     let apiKey: String?
     let baseURL: String
