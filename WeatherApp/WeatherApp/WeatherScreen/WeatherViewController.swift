@@ -117,7 +117,7 @@ class WeatherViewController: UIViewController {
         // get textfield text
         guard let cityName = searchTextField.text else { return }
         // call vm
-        viewModel.onUserCitySearch(cityName: cityName)
+        viewModel.searchCityWeather(cityName: cityName)
     }
 
     private func observeViewModel() {

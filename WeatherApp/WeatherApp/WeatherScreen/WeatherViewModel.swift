@@ -14,6 +14,7 @@ class WeatherViewModel {
     private var cancellables = Set<AnyCancellable>()
     private let uiDataSubject = PassthroughSubject<WeatherScreenUIData, Never>()
     
+    /// Observed by view layer to update ui.
     var uiDataPublisher: AnyPublisher<WeatherScreenUIData, Never> {
         uiDataSubject.eraseToAnyPublisher()
     }
@@ -25,7 +26,7 @@ class WeatherViewModel {
     }
     
     /// Called by view when user enters search criteria
-    func onUserCitySearch(cityName: String) {
+    func searchCityWeather(cityName: String) {
         Task {
             // save city to cache
             saveLastSearchedCity(cityName: cityName)
@@ -55,7 +56,7 @@ class WeatherViewModel {
         guard let cityName = loadLastSearchedCity() else {
             return
         }
-        onUserCitySearch(cityName: cityName)
+        searchCityWeather(cityName: cityName)
     }
     
     private func setupLocationUpdates() {
